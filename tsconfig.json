@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",                     // Compilar a la última versión de ECMAScript
+      "module": "ESNext",                     // Módulos ESNext para soportar importaciones dinámicas
+      "lib": ["DOM", "DOM.Iterable", "ESNext"], // Bibliotecas incluidas: DOM y ESNext
+      "allowJs": false,                       // No permitir archivos JavaScript
+      "skipLibCheck": true,                   // Omitir la verificación de librerías
+      "esModuleInterop": true,                // Habilitar la interoperabilidad de módulos ES
+      "allowSyntheticDefaultImports": true,   // Permitir importaciones de módulos con sintaxis default
+      "strict": true,                         // Modo estricto de TypeScript
+      "forceConsistentCasingInFileNames": true, // Forzar consistencia en nombres de archivos
+      "moduleResolution": "node",             // Resolución de módulos para entornos Node.js
+      "resolveJsonModule": true,              // Permitir importaciones de módulos JSON
+      "isolatedModules": true,                // Asegurar que cada archivo sea un módulo independiente
+      "noEmit": true,                        // No generar archivos de salida (.js)
+      "jsx": "react-jsx",                    // Soporte para JSX en React
+      "types": ["vite/client"]               // Tipos de TypeScript para Vite
+    },
+    "include": ["src"],                     // Carpeta incluida para búsqueda de archivos
+    "references": [{ "path": "./tsconfig.node.json" }]
+  }
+  
