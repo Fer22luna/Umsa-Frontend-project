@@ -14,7 +14,7 @@
       "isolatedModules": true,                // Asegurar que cada archivo sea un módulo independiente
       "noEmit": true,                        // No generar archivos de salida (.js)
       "jsx": "react-jsx",                    // Soporte para JSX en React
-      "types": ["vite/client"]               // Tipos de TypeScript para Vite
+      "types": ["vite/client","node"]               // Tipos de TypeScript para Vite
     },
     "include": ["src"],                     // Carpeta incluida para búsqueda de archivos
     "references": [{ "path": "./tsconfig.node.json" }]
