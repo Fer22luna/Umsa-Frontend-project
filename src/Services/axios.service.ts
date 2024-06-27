@@ -1,10 +1,12 @@
+import { TPaciente } from "../models/types/TPaciente";
 import { AxiosInstanceBase } from "../utils/axios.intance";
 
-export const fetchPacientes = async () => {
+export const fetchPacientes = async ():  Promise<TPaciente[]>  => {
     try {
-        const response = await AxiosInstanceBase.get("/pacientes");
+        const response = await AxiosInstanceBase.get("/paciente/all");
         return response.data;
     } catch (error) {
         console.error(error);
+        throw new Error('Error al obtener los pacientes');
     }
 }

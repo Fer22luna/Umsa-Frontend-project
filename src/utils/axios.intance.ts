@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const baseURL = process.env.REACT_APP_BASE_URL || 'http://localhost:8080';
+//const baseURL = process.env.REACT_APP_BASE_URL || 'http://localhost:8080';
 
+const baseURL = "http://localhost:8080";
 
 if(!baseURL){
     throw new Error('REACT_APP_BASE_URL is not defined');
