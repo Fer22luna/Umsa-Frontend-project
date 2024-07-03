@@ -1,3 +1,4 @@
+import { TDoctor } from "../models/types/TDoctor";
 import { TPaciente } from "../models/types/TPaciente";
 import { AxiosInstanceBase } from "../utils/axios.intance";
 
@@ -8,5 +9,14 @@ export const fetchPacientes = async ():  Promise<TPaciente[]>  => {
     } catch (error) {
         console.error(error);
         throw new Error('Error al obtener los pacientes');
+    }
+}
+export const fetchDoctores = async ():  Promise<TDoctor[]>  => {
+    try {
+        const response = await AxiosInstanceBase.get("api/doctor/list");
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error al obtener los doctores');
     }
 }
