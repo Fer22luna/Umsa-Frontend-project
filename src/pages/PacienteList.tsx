@@ -8,7 +8,6 @@ import Paper from '@mui/material/Paper';
 import { useCallback, useEffect, useState } from 'react';
 import { TPaciente } from '../models/types/TPaciente';
 import { PacienteService } from '../Services/Paciente.service';
-import axios from 'axios';
 
 
 const  PacienteList = () => {

@@ -4,6 +4,7 @@ import PacienteList from "../pages/PacienteList";
 import TurnoList from "../pages/TurnoList";
 import DoctoresList from "../pages/DoctorList";
 import EspecialidadList from "../pages/especialidades";
+import PacienteForm from "../pages/PacienteForm";
 
 const Router = () => {
 
@@ -13,6 +14,7 @@ const Router = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/pacientes" element={<PacienteList />} />
+                    <Route path="/pacienteform" element={<PacienteForm />} />
                     <Route path="/doctores" element={<DoctoresList />} />
                     <Route path="/turnos" element={<TurnoList />} />
                     <Route path="/especialidades" element={<EspecialidadList />} />

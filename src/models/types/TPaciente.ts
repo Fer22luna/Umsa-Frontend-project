@@ -1,6 +1,6 @@
 
 export interface TPaciente {
-    id: string,
+    id?: string,
     nombre: string,
     apellido: string,
     dni: string,
