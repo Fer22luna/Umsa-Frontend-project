@@ -1,6 +1,8 @@
 import axios from "axios";
 
-//const baseURL = process.env.REACT_APP_BASE_URL || 'http://localhost:8080';
+
+//const baseURL = import.meta.env.REACT_APP_BASE_URL || 'http://localhost:8080';
+// ver tambien archivo para el tipado
 
 const baseURL = "http://localhost:8080"; // ver de hacerlo en import.meta.env.BASE_URL
 
