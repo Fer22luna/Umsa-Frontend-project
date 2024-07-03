@@ -1,9 +1,11 @@
 import React, {useState} from "react";
-import { TextField, FormControl, Button } from "@mui/material";
+import { TextField, FormControl, Button, Dialog } from "@mui/material";
 import { Link } from "react-router-dom"
 import { TPaciente } from "../models/types/TPaciente";
+import ModalNotificacion from "../Components/ModalNotificacion/ModalNotificacion";
  
 const PacienteForm = () => {
+    const [paciente, setPaciente] = useState<TPaciente | null>(null)
     const [nombre, setNombre] = useState("")
     const [apellido, setApellido] = useState("")
     const [dni, setDni] = useState("")
@@ -12,8 +14,12 @@ const PacienteForm = () => {
     const [celular, setCelular] = useState("")
     const [obraSocial, setObraSocial] = useState("")
     const [cuit, setCuit] = useState("")
- 
-    const [responseError, setResponseError] = useState(false)
+    const [responseError, setResponseError] = useState(false)  
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const handleModalClose = () => {
+        setModalOpen(false);
+    }
  
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -38,7 +44,9 @@ const PacienteForm = () => {
             cuit,
         };
 
-        console.log(newPaciente);
+        setPaciente(newPaciente);
+        setModalOpen(true);
+        
     }
      
     return ( 
@@ -141,7 +149,12 @@ const PacienteForm = () => {
                     sx={{mb: 3}}
                  />
                  <Button variant="outlined" color="secondary" type="submit">Insert Patient</Button>
-             
+            
+                 {/* <ModalNotificacion open={modalOpen} handleClose={handleModalClose} paciente={paciente} /> */}
+                 {paciente && (
+                <ModalNotificacion open={modalOpen} handleClose={handleModalClose} paciente={paciente} />
+            )}
+
         </form>
         </>
      );
