@@ -11,6 +11,16 @@ export const fetchPacientes = async ():  Promise<TPaciente[]>  => {
         throw new Error('Error al obtener los pacientes');
     }
 }
+
+
+export const createPaciente = async (paciente : TPaciente):  Promise<TPaciente>  => {
+    try {
+        const response = await AxiosInstanceBase.post("api/paciente/create",paciente);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error al crear paciente los pacientes');
+
 export const fetchDoctores = async ():  Promise<TDoctor[]>  => {
     try {
         const response = await AxiosInstanceBase.get("api/doctor/list");
@@ -18,5 +28,6 @@ export const fetchDoctores = async ():  Promise<TDoctor[]>  => {
     } catch (error) {
         console.error(error);
         throw new Error('Error al obtener los doctores');
+
     }
 }

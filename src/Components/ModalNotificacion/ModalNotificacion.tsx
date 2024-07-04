@@ -1,12 +1,10 @@
-import { Preview } from "@mui/icons-material"
-import { Box, Button, Dialog, Modal, Typography } from "@mui/material"
-import { useState } from "react"
+import { Box, Button, Modal, Typography } from "@mui/material"
 import { TPaciente } from "../../models/types/TPaciente"
 
-interface BasicModalProps {
+interface ModalProps {
   open: boolean;
   handleClose: () => void;
-  paciente: any; // Puedes ajustar el tipo según tus necesidades
+  paciente: TPaciente ; // cambiar aca para utilizar este modal en otros componentes
 }
 
 const style = {
@@ -21,7 +19,7 @@ const style = {
   p: 4,
 };
 
-const ModalNotificacion: React.FC<BasicModalProps>  = ({ open, handleClose, paciente }) => {
+const ModalNotificacion: React.FC<ModalProps>  = ({ open, handleClose, paciente }) => {
 
 return(
   <Modal
@@ -32,7 +30,7 @@ return(
 >
   <Box sx={style}>
     <Typography id="modal-modal-title" variant="h6" component="h2">
-      Detalles del Paciente
+      Detalles del Paciente creado
     </Typography>
     {paciente && (
       <Typography id="modal-modal-description" sx={{ mt: 2 }}>
