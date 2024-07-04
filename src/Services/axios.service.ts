@@ -20,6 +20,8 @@ export const createPaciente = async (paciente : TPaciente):  Promise<TPaciente> 
     } catch (error) {
         console.error(error);
         throw new Error('Error al crear paciente los pacientes');
+    }
+}
 
 export const fetchDoctores = async ():  Promise<TDoctor[]>  => {
     try {
