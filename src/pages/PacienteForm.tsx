@@ -61,7 +61,7 @@ const PacienteForm = () => {
         <>
          <div style={{ width: '50%', margin: '20vh auto' }}>
         <form autoComplete="off" onSubmit={handleSubmit}>
-            <h1 style={{textAlign: 'center', marginBottom: '20px',fontSize: '40px'}}>Insertar nuevo paciente </h1>
+            <h1 style={{textAlign: 'center', marginBottom: '22px',fontSize: '40px'}}>Insertar nuevo paciente </h1>
                 <TextField 
                     label="nombre"
                     onChange={e => setNombre(e.target.value)}
