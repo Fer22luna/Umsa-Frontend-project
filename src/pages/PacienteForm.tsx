@@ -21,18 +21,18 @@ const PacienteForm = () => {
         setModalOpen(false);
     }
  
-    const savePaciente = (paciente: TPaciente) => { async () => {
-        try {
-            const response = await PacienteService.createPaciente(paciente);
-            console.log(response)
-        } catch (error) {
-            console.error(error);
-            throw new Error('Error al crear paciente');
-        }
-    }}
+    const savePaciente = (paciente: TPaciente) => { 
+        PacienteService.createPaciente(paciente).then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.error(error);
+                throw new Error('Error al crear paciente');
+            })}
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
+        
+        event.preventDefault()  // evite que se mande y se resetee el formulario
         setResponseError(false);
         if (nombre == '') {
             setResponseError(true)
@@ -51,18 +51,17 @@ const PacienteForm = () => {
             cuit,
         };
         setPaciente(newPaciente);
-        setModalOpen(true);
+        setModalOpen(false);
         savePaciente(newPaciente);
+
         
     }
 
-
-
-     
     return ( 
         <>
+         <div style={{ width: '50%', margin: '20vh auto' }}>
         <form autoComplete="off" onSubmit={handleSubmit}>
-            <h2>Insertar nuevo paciente </h2>
+            <h1 style={{textAlign: 'center', marginBottom: '20px',fontSize: '40px'}}>Insertar nuevo paciente </h1>
                 <TextField 
                     label="nombre"
                     onChange={e => setNombre(e.target.value)}
@@ -72,6 +71,7 @@ const PacienteForm = () => {
                     type="text"
                     sx={{mb: 3}}
                     size="medium"
+                    fullWidth
                     value={nombre}
                     error={responseError}
                  />
@@ -85,6 +85,7 @@ const PacienteForm = () => {
                     value={apellido}
                     error={responseError}
                     size="medium"
+                    fullWidth
                     sx={{mb: 3}}
                  />
                    <TextField 
@@ -158,7 +159,9 @@ const PacienteForm = () => {
                     fullWidth
                     sx={{mb: 3}}
                  />
+                 <div style={{textAlign: 'center'}}>
                  <Button variant="outlined" color="secondary" type="submit">Insert Patient</Button>
+                 </div>
             
                  {/* <ModalNotificacion open={modalOpen} handleClose={handleModalClose} paciente={paciente} /> */}
                  {paciente && (
@@ -166,6 +169,7 @@ const PacienteForm = () => {
             )}
 
         </form>
+        </div>
         </>
      );
 }

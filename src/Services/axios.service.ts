@@ -13,7 +13,8 @@ export const fetchPacientes = async ():  Promise<TPaciente[]>  => {
 
 export const createPaciente = async (paciente : TPaciente):  Promise<TPaciente>  => {
     try {
-        const response = await AxiosInstanceBase.post("api/paciente/create",paciente);
+        const response = await AxiosInstanceBase.post("api/paciente/crear",paciente);
+        console.log(response)
         return response.data;
     } catch (error) {
         console.error(error);
