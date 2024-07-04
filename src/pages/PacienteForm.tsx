@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import { TextField, FormControl, Button, Dialog } from "@mui/material";
-import { Link } from "react-router-dom"
 import { TPaciente } from "../models/types/TPaciente";
 import ModalNotificacion from "../Components/ModalNotificacion/ModalNotificacion";
+import { PacienteService } from "../Services/Paciente.service";
  
 const PacienteForm = () => {
     const [paciente, setPaciente] = useState<TPaciente | null>(null)
@@ -21,18 +21,25 @@ const PacienteForm = () => {
         setModalOpen(false);
     }
  
+    const savePaciente = (paciente: TPaciente) => { async () => {
+        try {
+            const response = await PacienteService.createPaciente(paciente);
+            console.log(response)
+        } catch (error) {
+            console.error(error);
+            throw new Error('Error al crear paciente');
+        }
+    }}
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
- 
         setResponseError(false);
- 
         if (nombre == '') {
             setResponseError(true)
         }
         if (cuit == '') {
             setResponseError(true)
         }
-
         const newPaciente: TPaciente = {
             nombre,
             apellido,
@@ -43,11 +50,14 @@ const PacienteForm = () => {
             obraSocial,
             cuit,
         };
-
         setPaciente(newPaciente);
         setModalOpen(true);
+        savePaciente(newPaciente);
         
     }
+
+
+
      
     return ( 
         <>
