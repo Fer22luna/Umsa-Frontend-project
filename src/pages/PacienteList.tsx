@@ -37,7 +37,7 @@ const  PacienteList = () => {
 
   return (
     <div style={{ width: '70%', margin: '40vh auto' }}>
-      <h1 style={{textAlign: 'center', marginBottom: '20px',fontSize: '30px'}}>Lista de pacientes </h1>
+      <h1 style={{textAlign: 'center', marginBottom: '20px',fontSize: '30px'}}>Lista de  pacientes </h1>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
