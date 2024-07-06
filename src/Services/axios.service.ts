@@ -34,3 +34,14 @@ export const fetchDoctores = async ():  Promise<TDoctor[]>  => {
 
     }
 }
+
+export const createDoctor = async (doctor : TDoctor):  Promise<TDoctor>  => {
+    try {
+        const response = await AxiosInstanceBase.post("api/doctor/create",doctor);
+        console.log(response)
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error al crear doctor');
+    }
+}
