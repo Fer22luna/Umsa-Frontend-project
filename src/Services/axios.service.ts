@@ -36,6 +36,9 @@ export const fetchDoctores = async ():  Promise<TDoctor[]>  => {
     }
 }
 
+export const createDoctor = async (doctor : TDoctor):  Promise<TDoctor>  => {
+    try {
+        const response = await AxiosInstanceBase.post("api/doctor/create",doctor);
 export const fetchTurnos = async ():  Promise<TypeTurno[]>  => {
     try {
         const response = await AxiosInstanceBase.get("api/turno/all");
@@ -54,6 +57,6 @@ export const createTurno = async (turno : TypeTurno):  Promise<TypeTurno>  => {
         return response.data;
     } catch (error) {
         console.error(error);
-        throw new Error('Error al crear Turnos');
+        throw new Error('Error al crear doctor');
     }
 }
