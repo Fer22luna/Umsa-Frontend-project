@@ -1,5 +1,6 @@
 export interface TDoctor {
     
+    id?: string,
     nombre: string,
     apellido: string,
     dni: string,

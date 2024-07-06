@@ -1,5 +1,6 @@
 import { TDoctor } from "../models/types/TDoctor";
 import { TPaciente } from "../models/types/TPaciente";
+import { TypeTurno } from "../models/types/TypeTurno";
 import { AxiosInstanceBase } from "../utils/axios.intance";
 
 export const fetchPacientes = async ():  Promise<TPaciente[]>  => {
@@ -32,5 +33,27 @@ export const fetchDoctores = async ():  Promise<TDoctor[]>  => {
         console.error(error);
         throw new Error('Error al obtener los doctores');
 
+    }
+}
+
+export const fetchTurnos = async ():  Promise<TypeTurno[]>  => {
+    try {
+        const response = await AxiosInstanceBase.get("api/turno/all");
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error al obtener los turnos');
+    }
+}
+
+
+export const createTurno = async (turno : TypeTurno):  Promise<TypeTurno>  => {
+    try {
+        const response = await AxiosInstanceBase.post("api/turno/nuevoTurno",turno);
+        console.log(response)
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error al crear Turnos');
     }
 }
