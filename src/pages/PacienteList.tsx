@@ -8,6 +8,9 @@ import Paper from '@mui/material/Paper';
 import {  useEffect, useState } from 'react';
 import { TPaciente } from '../models/types/TPaciente';
 import { PacienteService } from '../Services/Paciente.service';
+import PacienteForm from './PacienteForm';
+import { BottomNavigation, BottomNavigationAction, Button } from '@mui/material';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
 const  PacienteList = () => {
@@ -37,6 +40,9 @@ const  PacienteList = () => {
 
   return (
     <div style={{ width: '70%', margin: '40vh auto' }}>
+    <div style={{textAlign: 'end', marginBottom: '20px',fontSize: '30px'}}>
+    <Button href="./PacienteForm" variant="contained">Nuevo Paciente</Button>
+   </div>
       <h1 style={{textAlign: 'center', marginBottom: '20px',fontSize: '30px'}}>Lista de  pacientes </h1>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">

@@ -155,14 +155,9 @@ const TurnoForm = () => {
                     sx={{mb: 3}}
                  />
                  <div style={{textAlign: 'center'}}>
-                 <Button variant="outlined" color="secondary" type="submit">Insert Patient</Button>
+                 <Button variant="outlined" color="secondary" type="submit">Crear turno</Button>
                  </div>
             
-                 {/* <ModalNotificacion open={modalOpen} handleClose={handleModalClose} paciente={paciente} /> */}
-                 {/* {turno && (
-                <ModalNotificacion open={modalOpen} handleClose={handleModalClose} paciente={paciente} />
-            )} */}
-
         </form>
         </div>
         </>

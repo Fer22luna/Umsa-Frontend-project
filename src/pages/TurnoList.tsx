@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import {  useEffect, useState } from 'react';
 import { TypeTurno } from '../models/types/TypeTurno';
 import { TurnoService } from '../Services/Turno.service';
+import { Button } from '@mui/material';
 
 
 const  TurnoList = () => {
@@ -36,6 +37,9 @@ const  TurnoList = () => {
 
   return (
     <div style={{ width: '70%', margin: '40vh auto' }}>
+       <div style={{textAlign: 'end', marginBottom: '20px',fontSize: '30px'}}>
+          <Button href="./turnoForm" variant="contained">Nuevo Turno +</Button>
+        </div>
       <h1 style={{textAlign: 'center', marginBottom: '20px',fontSize: '30px'}}>Lista de Turnos </h1>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -52,16 +56,16 @@ const  TurnoList = () => {
         <TableBody>
           {turnos.map((row) => (
             <TableRow
-              key={row.doctorId}
+              key={row.doctor}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.doctorId}
+                {row.doctor}
               </TableCell>
               <TableCell align="left">{row.fechaHoraTurno}</TableCell>
               <TableCell align="left">{row.domicilioConsulta}</TableCell>
               <TableCell align="left">{row.obraSocial}</TableCell>
-              <TableCell align="left">{row.pacienteId}</TableCell>
+              <TableCell align="left">{row.paciente}</TableCell>
               <TableCell align="left">{row.estadoTurno}</TableCell>
             </TableRow>
           ))}
