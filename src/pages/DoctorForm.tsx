@@ -164,9 +164,6 @@ const DoctorForm = () => {
                  <Button variant="outlined" color="secondary" type="submit">Insert Doctor</Button>
                  </div>
                  {}
-                 {doctor && (
-                <ModalNotificacion open={modalOpen} handleClose={handleModalClose} doctor={doctor} />
-            )}
 
         </form>
         </div>
